@@ -10,7 +10,8 @@ form.addEventListener('submit', async (e) => {
     }
 
     try {
-        const response = await fetch(`/api/weather?city=${encodeURIComponent(city)}`)
+        const url = `https://backend-weather-app-w6ux.onrender.com`
+        const response = await fetch(`${url}/api/weather?city=${encodeURIComponent(city)}`)
         const data = await response.json()
 
         if (!response.ok) {
@@ -40,8 +41,5 @@ function showWeather(data) {
     document.getElementById('clouds').textContent = `${data.cloudiness}`;
     document.getElementById('timezone').textContent = `${data.timezone}`;
     document.getElementById('name').textContent = `${data.name}`;
-
-
-
 
 }
